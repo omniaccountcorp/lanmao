@@ -1,4 +1,4 @@
-url: 'https://apiuat.rockfintech.com/2.0.0/deposit'
+url: 'https://depositapiuat.rockfintech.com/2.0.0/deposit'
 rft_token: ''
 rft_org: '1001'
 rft_key: '6615252261684528'
