@@ -1,6 +1,6 @@
 require "bundler/setup"
 require 'faker'
-require "rock_fintech"
+require "lanmao"
 require "awesome_print"
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |file| require file }
 
