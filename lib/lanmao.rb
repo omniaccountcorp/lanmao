@@ -14,9 +14,7 @@ require "lanmao/version"
 require "lanmao/version"
 require "lanmao/utils"
 require "lanmao/extensions"
-require "lanmao/sign/md5"
-require "lanmao/sign/sign"
-require "lanmao/encrypt/rsa"
+require "lanmao/sign/rsa"
 require "lanmao/http/request"
 require "lanmao/http/response"
 
@@ -26,6 +24,11 @@ Dir["#{File.dirname(__FILE__)}/lanmao/api/**/*.rb"].each { |file| require file }
 Dir["#{File.dirname(__FILE__)}/lanmao/form/**/*.rb"].each { |file| require file }
 # 自动加载所有 http error code
 Dir["#{File.dirname(__FILE__)}/lanmao/http/error_code/**/*.rb"].each { |file| require file }
+
+module Lanmao
+  module Form
+  end
+end
 
 require "lanmao/client"
 
