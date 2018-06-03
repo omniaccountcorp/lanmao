@@ -26,4 +26,5 @@ RSpec.configure do |config|
   end
 
   config.include ClientSupport
+  config.include FormSupport
 end
