@@ -20,6 +20,24 @@ module Lanmao
         @response = nil
       end
 
+      def get_body
+        Lanmao.logger.info "#{identifier} 请求内容为：\n#{@params.to_json}\n"
+
+        sign_str = Sign::RSA.sign(@params.to_json, @config[:private_key])
+
+        body = {
+          serviceName: @service,
+          platformNo: @config[:platform_no],
+          reqData: @params.to_json,
+          keySerial: @config[:key_serial],
+          sign: sign_str,
+        }
+
+        url = @url
+
+        return body, url
+      end
+
       def post
         # 1. api params
         Lanmao.logger.info "#{identifier} 请求内容为：\n#{@params.to_json}\n"
