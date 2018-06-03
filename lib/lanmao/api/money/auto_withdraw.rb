@@ -13,7 +13,7 @@ module Lanmao
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
         #
-        def withdraw(user_no, flow_id, withdraw_type,
+        def auto_withdraw(user_no, flow_id, withdraw_type,
                      amount, commission=nil)
 
           service = 'AUTO_WITHDRAW'

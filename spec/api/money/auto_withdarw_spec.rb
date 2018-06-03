@@ -9,7 +9,7 @@ RSpec.describe '自动提现' do
   let(:commission) { nil }
 
   it '失败' do
-    res = client.withdraw(user_no, flow_id, withdraw_type, amount, commission)
+    res = client.auto_withdraw(user_no, flow_id, withdraw_type, amount, commission)
 
     expect(res[:result]).not_to eq "S"
   end
