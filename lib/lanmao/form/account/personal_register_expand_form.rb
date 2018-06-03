@@ -2,7 +2,7 @@
 module Lanmao
   module Form
     module Account
-      module PersonalRegisterExpand
+      module PersonalRegisterExpandForm
 
         #  2.1 个人绑卡注册
         #
