@@ -2,9 +2,9 @@
 module Lanmao
   module Api
     module Query
-      module QueryUserInfomation
+      module QueryTransaction
 
-        #  5.1.	用户信息查询
+        #  5.2	单笔交易查询
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -14,11 +14,12 @@ module Lanmao
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
         #
-        def query_user_information(user_no)
-
-          service = 'QUERY_USER_INFORMATION'
+        def query_transaction(flow_id, transaction_type, user_no)
+          service = 'QUERY_TRANSACTION'
 
           params = {
+            requestNo: flow_id,
+            transactionType: transaction_type,
             platformUserNo: user_no,
           }
 
