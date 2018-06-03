@@ -1,18 +1,18 @@
 # coding: utf-8
 require 'spec_helper'
 
-RSpec.describe '修改密码' do
+RSpec.describe '验证密码' do
   let(:user_no) { 'c01' }
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
-  let(:is_skip) { 'Remember' }
+  let(:biz_type_description) { '测试场景' }
   let(:return_url) { 'http://test.omni_account.com' }
 
-  it '知道原密码，修改密码' do
-    result = client.reset_password_form(flow_id, user_no, is_skip, return_url)
+  it '验证密码' do
+    result = client.check_password_form(flow_id, user_no, biz_type_description, return_url)
 
     html = create_getway_post(result)
 
-    path = 'tmp/spec_reset_password_form.html'
+    path = 'tmp/spec_check_password_form.html'
     fp = File.open(path, 'w+')
     fp.write html
     fp.close
