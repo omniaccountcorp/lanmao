@@ -9,11 +9,9 @@ module Lanmao
     def initialize(options_arg)
       options = Utils.symbolize_keys(options_arg)
       @config = {
-        uri: options[:url],
-        rft_token: options[:rft_token],
-        rft_org: options[:rft_org],
-        rft_key: options[:rft_key],
-        rft_secret: options[:rft_secret],
+        path: options[:path],
+        platform_no: options[:platform_no],
+        key_serial: options[:key_serial],
         private_key: OpenSSL::PKey::RSA.new(options[:private_key]),
         public_key: OpenSSL::PKey::RSA.new(options[:public_key]),
       }

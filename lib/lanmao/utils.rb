@@ -67,7 +67,8 @@ module Lanmao
         response: response,
         flow_id: response.nil? ? nil : response.flow_id,
         code: response.nil? ? nil : response.data[:code],
-        msg: response.nil? ? nil : response.data[:msg],
+        error_code: response.nil? ? nil : response.data[:errorCode],
+        error_msg: response.nil? ? nil : response.data[:errorMessage],
         data: response.nil? ? nil : response.data,
       }
     end
