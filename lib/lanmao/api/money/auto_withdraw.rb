@@ -1,10 +1,9 @@
 # coding: utf-8
 module Lanmao
   module Api
-    module Query
-      module QueryUserInfomation
+    module Money
+      module Withdraw
 
-        #  5.1.	用户信息查询
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -14,15 +13,20 @@ module Lanmao
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
         #
-        def query_user_information(user_no)
+        def auto_withdraw(user_no, flow_id, withdraw_type,
+                     amount, commission=nil)
 
-          service = 'QUERY_USER_INFORMATION'
+          service = 'AUTO_WITHDRAW'
 
           params = {
             platformUserNo: user_no,
+            requestNo: flow_id,
+            withdrawType: withdraw_type,
+            amount: amount,
+            commission: commission
           }
 
-          res = operate_post(:query, service, params, :service)
+          res = operate_post(:operate, service, params, :service)
 
           res
         end

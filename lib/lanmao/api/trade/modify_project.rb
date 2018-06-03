@@ -1,10 +1,9 @@
 # coding: utf-8
 module Lanmao
   module Api
-    module Query
-      module QueryUserInfomation
+    module Trade
+      module ModifyProject
 
-        #  5.1.	用户信息查询
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -14,15 +13,17 @@ module Lanmao
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
         #
-        def query_user_information(user_no)
+        def modify_project(request_no, project_no, status)
 
-          service = 'QUERY_USER_INFORMATION'
+          service = 'MODIFY_PROJECT'
 
           params = {
-            platformUserNo: user_no,
+            requestNo: request_no,
+            projectNo: project_no,
+            status: status,
           }
 
-          res = operate_post(:query, service, params, :service)
+          res = operate_post(:operate, service, params, :service)
 
           res
         end
