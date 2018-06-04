@@ -1,8 +1,8 @@
 # coding: utf-8
 module Lanmao
-  module Api
+  module Form
     module Money
-      module Withdraw
+      module WithdrawForm
         # 提现
         #
         # @return [ Hash ] 结果集
@@ -17,12 +17,22 @@ module Lanmao
         #       * :amount [Number] 金额
         #       * :balance [Number] 操作后账户余额
         #
-        def withdraw()
-          params = { }
+        def withdraw_form(flow_id, platform_user_no, expired, redirect_url, amount, withdraw_type='NORMAL', withdraw_form='IMMEDIATE', commission=0.0)
 
-          res = operate_post()
+          service = "WITHDRAW"
 
-          Lanmao.logger.info res
+          params = {
+            requestNo: flow_id,
+            platformUserNo: platform_user_no,
+            expired: expired,
+            redirectUrl: redirect_url,
+            amount: amount,
+            withdrawType: withdraw_type,
+            withdrawForm: withdraw_form,
+            commission: commission
+          }
+
+          res = get_form_data(service, params)
 
           res
         end
