@@ -6,8 +6,6 @@ module Lanmao
         #
         # 表的信息查询
         #
-        # @param keywords [Array]
-        #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
         #   * :request_params [Hash] 请求参数

@@ -9,10 +9,7 @@ module Lanmao
       # @param service [ String ] 上饶的服务
       # @param params [ Hash ] 参数
       # @param type [ Symbol ] gateway => 网关模式, service => 直连模式
-      # @param fail_codes [ Array ] 错误返回码
-      # @param success_codes [ String ] 【业务】【明确的】正确返回码（而不是申请成功这类）
       #
-      # @return [ Hash ] 结果集(见通用返回)
       #
       def operate_post(request_type, service, params, type)
         request = Http::Request.new(params, @config, service, type)
