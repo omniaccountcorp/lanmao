@@ -16,13 +16,21 @@ module Lanmao
         #       * :order_no [String] 订单号
         #       * :amount [Number] 金额
         #
-        def enterprise_bind_bankcard()
+        def enterprise_bind_bankcard(flow_id, redirect_url, platform_user_no, bank_card_no, bank_code, bind_type="UPDATE_BANKCARD", client='MOBILE')
 
-          params = {}
+          service = "ENTERPRISE_BIND_BANKCARD"
+          
+          params = {
+            requestNo: flow_id,
+            redirectUrl: redirect_url,
+            platformUserNo: platform_user_no,
+            checkType: bank_card_no,
+            bankcode: bank_code,
+            bindType: bind_type,
+            userDevice: client
+          }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = get_form_data(service, params)
 
           res
         end
