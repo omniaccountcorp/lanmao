@@ -12,18 +12,29 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :url [String] 支付 url
-        #       * :order_no [String] 订单号
-        #       * :amount [Number] 金额
+        #       * :bizType
+        #       * :status
+        #       * :errorCode
+        #       * :errorMessage
+        #       * :requestNo
         #
-        def user_auto_pre_transaction()
+        def user_auto_pre_transaction(flow_id, platform_user_id,  biz_type, amount,  project_no, original_recharge_no="", pre_marketing_amount="", share="", credit_sale_request_no="", remark="" )
 
+          service = "USER_AUTO_PRE_TRANSACTION"
           params = {
+            requestNo: flow_id,
+            platformUserNo: platform_user_id,
+            originalRechargeNo: original_recharge_no,
+            bizType: biz_type,
+            amount: amount,
+            preMarketingAmount: pre_marketing_amount,
+            remark: remark,
+            projectNo: project_no,
+            share: share,
+            creditsaleRequestNo: credit_sale_request_no,
           }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = operate_post(:operate, service, params, :service)
 
           res
         end
