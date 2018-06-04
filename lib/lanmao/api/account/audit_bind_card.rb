@@ -16,13 +16,17 @@ module Lanmao
         #       * :order_no [String] 订单号
         #       * :amount [Number] 金额
         #
-        def audit_bind_card()
+        def audit_bind_card(request_no, original_request_no, audit_type)
 
-          params = {}
+          service = "AUDIT_BIND_CARD"
+          
+          params = {
+            requestNo: request_no,
+            originalRequestNo: original_request_no,
+            auditType: audit_type
+          }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = operate_post(:operate, service, params, :service)
 
           res
         end
