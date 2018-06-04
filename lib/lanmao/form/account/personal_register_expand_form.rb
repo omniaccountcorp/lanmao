@@ -28,8 +28,8 @@ module Lanmao
             userRole: role_type,
             checkType: check_type,
             redirectUrl: return_url,
-            user_limit_type: user_limit_type,
-            auth_list: auth_list,
+            userLimitType: user_limit_type,
+            authList: auth_list,
             userDevice: client,
           }
 
