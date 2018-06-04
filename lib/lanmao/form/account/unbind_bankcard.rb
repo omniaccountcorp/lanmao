@@ -16,13 +16,18 @@ module Lanmao
         #       * :order_no [String] 订单号
         #       * :amount [Number] 金额
         #
-        def unbind_bankcard()
+        def unbind_bankcard(flow_id, redirect_url, platform_user_no, client="MOBILE")
 
-          params = {}
+          service = "UNBIND_BANKCARD"
 
-          res = operate_post()
+          params = {
+            requestNo: flow_id,
+            redirectUrl: redirect_url,
+            platformUserNo: platform_user_no,
+            userDevice: client
+          }
 
-          Lanmao.logger.info res
+          res = get_form_data(service, params)
 
           res
         end
