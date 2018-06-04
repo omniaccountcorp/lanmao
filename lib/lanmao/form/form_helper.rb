@@ -25,7 +25,7 @@ module Lanmao
             :url => url,
             :method => :post,
           },
-          form_data: body
+          form_data: body.merge(userDevice: params[:userDevice]),
         }
       end
 
