@@ -4,7 +4,7 @@ module Lanmao
     module Query
       module QueryTransaction
 
-        #  5.2	单笔交易查询
+        #  单笔交易查询
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -13,17 +13,21 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
+        #       * :card_no [String] 借款人电子账号
+        #       * :warrant_card_no [String] 担保人电子账号
+        #       * :asset_no [Integer] 标的编号,40
+        #       * :borrow_card_no [String] 名义借款人电子账号
+        #       * :debtor_card_no [String] 收款人电子账号
+        #       * :amount	[Decimal] 借款金额
+        #       * :asset_no [String] 标的号
+        #       * :status	受托支付签约状态 [Integer] 0：普通标的 1：签约 2：未签约
         #
-        def query_transaction(flow_id, transaction_type, user_no)
-          service = 'QUERY_TRANSACTION'
+        def query_transaction()
 
-          params = {
-            requestNo: flow_id,
-            transactionType: transaction_type,
-            platformUserNo: user_no,
-          }
 
-          res = operate_post(:query, service, params, :service)
+          params = { }
+
+          res = operate_post()
 
           res
         end

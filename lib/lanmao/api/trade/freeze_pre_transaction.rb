@@ -1,10 +1,9 @@
 # coding: utf-8
 module Lanmao
   module Api
-    module Query
-      module QueryUserInfomation
-
-        #  5.1.	用户信息查询
+    module Trade
+      module FreezePreTransaction
+        # 冻结预处理
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -13,21 +12,23 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
+        #       * :url [String] 支付 url
+        #       * :order_no [String] 订单号
+        #       * :amount [Number] 金额
         #
-        def query_user_information(user_no)
-
-          service = 'QUERY_USER_INFORMATION'
+        def freeze_pre_transaction()
 
           params = {
-            platformUserNo: user_no,
           }
 
-          res = operate_post(:query, service, params, :service)
+          res = operate_post()
+
+          Lanmao.logger.info res
 
           res
         end
 
-      end
+      end # module
     end
   end
 end

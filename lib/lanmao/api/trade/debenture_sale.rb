@@ -3,7 +3,7 @@ module Lanmao
   module Api
     module Trade
       module DebentureSale
-
+        # 单笔债权出让
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -12,7 +12,6 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #
         def debenture_sale(request_no, user_no, project_no, sale_share)
 
           service = 'DEBENTURE_SALE'
