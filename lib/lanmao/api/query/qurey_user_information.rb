@@ -2,9 +2,9 @@
 module Lanmao
   module Api
     module Query
-      module QueryProjectInformation
-        #
-        # 表的信息查询
+      module QueryUserInfomation
+
+        #  5.1.	用户信息查询
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -13,21 +13,20 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :banks [Array] 查询结果银行列表
-        #         * :union_bank_code [String] 人行分配联行号
-        #         * :bank_name [String] 银行分支行全称
         #
-        def query_project_information(project_no)
-          service = 'QUERY_PROJECT_INFORMATION'
+        def query_user_information(user_no)
+
+          service = 'QUERY_USER_INFORMATION'
 
           params = {
-            projectNo: project_no,
+            platformUserNo: user_no,
           }
 
           res = operate_post(:query, service, params, :service)
 
           res
         end
+
       end
     end
   end
