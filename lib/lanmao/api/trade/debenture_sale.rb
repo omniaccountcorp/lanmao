@@ -12,23 +12,23 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :url [String] 支付 url
-        #       * :order_no [String] 订单号
-        #       * :amount [Number] 金额
-        #
-        def debenture_sale()
+        def debenture_sale(request_no, user_no, project_no, sale_share)
+
+          service = 'DEBENTURE_SALE'
 
           params = {
+            requestNo: request_no,
+            platformUserNo: user_no,
+            projectNo: project_no,
+            saleShare: sale_share,
           }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = operate_post(:operate, service, params, :service)
 
           res
         end
 
-      end # module
+      end
     end
   end
 end

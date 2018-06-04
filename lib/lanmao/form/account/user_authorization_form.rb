@@ -1,9 +1,9 @@
 # coding: utf-8
 module Lanmao
   module Api
-    module Trade
-      module ModifyProject
-        # 变更标的
+    module Account
+      module UserAuthorization
+
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -13,22 +13,23 @@ module Lanmao
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
         #
-        def modify_project(request_no, project_no, status)
+        def user_authorization(user_no, request_no, auth_list, redirect_url)
 
-          service = 'MODIFY_PROJECT'
+          service = 'USER_AUTHORIZATION'
 
           params = {
+            platformUserNo: user_no,
             requestNo: request_no,
-            projectNo: project_no,
-            status: status,
+            authList: auth_list,
+            redirectUrl: redirect_url,
           }
 
-          res = operate_post(:operate, service, params, :service)
+          res = get_form_data(service, params)
 
           res
         end
 
-      end # module
+      end
     end
   end
 end

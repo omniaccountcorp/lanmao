@@ -13,14 +13,15 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :name [String] 姓名
-        #       * :status [String] 订单状态
         #
-        def query_authorization_entrust_pay_record()
+        def query_authorization_entrust_pay_record(flow_id)
+          service = 'QUERY_AUTHORIZATION_ENTRUST_PAY_RECORD'
 
-          params = {}
+          params = {
+            requestNo: flow_id,
+          }
 
-          res = operate_post()
+          res = operate_post(:query, service, params, :service)
 
           res
         end

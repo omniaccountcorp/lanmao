@@ -12,18 +12,29 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :url [String] 支付 url
-        #       * :order_no [String] 订单号
-        #       * :amount [Number] 金额
         #
-        def establish_project()
+        def establish_project(request_no, user_no, project_no,
+                              project_amount, project_name,
+                              project_type, annnual_interest_rate,
+                              repayment_way, project_period, project_description=nil, extend_info=nil)
+
+          service = 'ESTABLISH_PROJECT'
 
           params = {
+            platformUserNo: user_no,
+            requestNo: request_no,
+            projectNo: project_no,
+            projectAmount: project_amount,
+            projectName: project_name,
+            projectDescription: project_description,
+            projectType: project_type,
+            projectPeriod: project_period,
+            annnualInterestRate: annnual_interest_rate,
+            repaymentWay: repayment_way,
+            extend: extend_info,
           }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = operate_post(:operate, service, params, :service)
 
           res
         end
