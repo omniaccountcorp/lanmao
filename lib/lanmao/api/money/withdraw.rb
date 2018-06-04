@@ -1,9 +1,9 @@
 # coding: utf-8
 module Lanmao
   module Api
-    module Trade
-      module ModifyProject
-        # 变更标的
+    module Money
+      module Withdraw
+        # 提现
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -12,18 +12,17 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
+        #       * :serial_no [String] 交易流水号
+        #       * :order_no [String] 订单号
+        #       * :amount [Number] 金额
+        #       * :balance [Number] 操作后账户余额
         #
-        def modify_project(request_no, project_no, status)
+        def withdraw()
+          params = { }
 
-          service = 'MODIFY_PROJECT'
+          res = operate_post()
 
-          params = {
-            requestNo: request_no,
-            projectNo: project_no,
-            status: status,
-          }
-
-          res = operate_post(:operate, service, params, :service)
+          Lanmao.logger.info res
 
           res
         end

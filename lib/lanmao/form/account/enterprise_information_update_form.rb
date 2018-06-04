@@ -2,8 +2,8 @@
 module Lanmao
   module Form
     module Account
-      module ResetPasswordForm
-        # 修改密码
+      module EnterpriseInformationUpdateForm
+        # 更新企业信息
         #
         # @return [ Hash ] 结果集
         #   * :form_method
@@ -12,16 +12,14 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def reset_password_form(flow_id, platform_user_no, redirect_url, is_skip="Forget", client='MOBILE')
+        def enterprise_information_update_form(flow_id, platform_user_no, redirect_url)
 
-          service = "RESET_PASSWORD"
+          service = "ENTERPRISE_INFORMATION_UPDATE"
 
           params = {
-            requestNo: flow_id,
+            requetNo: flow_id,
             platformUserNo: platform_user_no,
-            redirectUrl: redirect_url,
-            isSkip: is_skip,
-            userDevice: client
+            redirectUrl: redirect_url
           }
 
           res = get_form_data(service, params)

@@ -8,7 +8,7 @@ RSpec.describe "用户授权" do
   let(:redirect_url) { "test.omniaccount.com" }
 
   it "失败" do
-    res = client.user_authorization(user_no, request_no, auth_list, redirect_url)
+    res = client.user_authorization_form(user_no, request_no, auth_list, redirect_url)
 
     html = create_getway_post(res)
 
