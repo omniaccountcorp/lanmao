@@ -2,7 +2,7 @@
 module Lanmao
   module Api
     module Money
-      module DerectRecharge
+      module DirectRecharge
         # 自动充值
         #
         # @return [ Hash ] 结果集
@@ -17,12 +17,20 @@ module Lanmao
         #       * :amount [Number] 金额
         #       * :balance [Number] 操作后账户余额
         #
-        def direct_recharge()
-          params = { }
+        def direct_recharge(flow_id, platform_user_no, amount, pay_company, recharge_way, commission=0)
 
-          res = operate_post()
+          service = "DIRECT_RECHARGE"
 
-          Lanmao.logger.info res
+          params = {
+            requestNo: flow_id,
+            platformUserNo: platform_user_no,
+            amount: amount,
+            expectPayCommission: commission,
+            rechargeWay: recharge_way,
+            commission: commission
+          }
+
+          res = operate_post(:operate, service, params, :service)
 
           res
         end
