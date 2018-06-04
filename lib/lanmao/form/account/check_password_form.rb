@@ -3,7 +3,7 @@ module Lanmao
   module Form
     module Account
       module CheckPasswordForm
-
+        #
         #  2.8 验证密码
         #
         # @return [ Hash ] 结果集

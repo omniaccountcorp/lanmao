@@ -1,8 +1,8 @@
 # coding: utf-8
 module Lanmao
-  module Api
+  module Form
     module Account
-      module PersonalBindBankcardExpand
+      module PersonalBindBankcardExpandForm
         # 个人换绑卡
         #
         # @return [ Hash ] 结果集
@@ -16,13 +16,19 @@ module Lanmao
         #       * :order_no [String] 订单号
         #       * :amount [Number] 金额
         #
-        def personal_bind_bankcard_expand()
+        def personal_bind_bankcard_expand_form(flow_id, redirect_url, platform_user_no, check_type="LIMIT", bind_type="UPDATE_BANKCARD", client='MOBILE')
 
-          params = {}
+          service = "PERSONAL_BIND_BANKCARD_EXPAND"
+          params = {
+            requestNo: flow_id,
+            redirectUrl: redirect_url,
+            platformUserNo: platform_user_no,
+            checkType: check_type,
+            bindType: bind_type,
+            userDevice: client
+          }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = get_form_data(service, params)
 
           res
         end

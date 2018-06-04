@@ -2,8 +2,8 @@
 module Lanmao
   module Form
     module Account
-      module ResetPasswordForm
-        # 修改密码
+      module ModifyMobileExpandForm
+        # 修改手机号码
         #
         # @return [ Hash ] 结果集
         #   * :form_method
@@ -12,15 +12,15 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def reset_password_form(flow_id, platform_user_no, redirect_url, is_skip="Forget", client='MOBILE')
+        def modify_mobile_expand_form(flow_id, platform_user_no, redirect_url, check_type, client="MOBILE")
 
-          service = "RESET_PASSWORD"
+          service = "MODIFY_MOBILE_EXPAND"
 
           params = {
-            requestNo: flow_id,
+            requetNo: flow_id,
             platformUserNo: platform_user_no,
             redirectUrl: redirect_url,
-            isSkip: is_skip,
+            checkType: check_type,
             userDevice: client
           }
 

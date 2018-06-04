@@ -3,7 +3,7 @@ module Lanmao
   module Form
     module Account
       module EnterpriseRegisterForm
-
+        #
         #  2.2 企业绑卡注册
         #
         # @return [ Hash ] 结果集

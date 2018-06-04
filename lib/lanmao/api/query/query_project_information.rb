@@ -17,16 +17,17 @@ module Lanmao
         #         * :union_bank_code [String] 人行分配联行号
         #         * :bank_name [String] 银行分支行全称
         #
-        def query_project_information()
+        def query_project_information(project_no)
+          service = 'QUERY_PROJECT_INFORMATION'
 
+          params = {
+            projectNo: project_no,
+          }
 
-          params = {}
-
-          res = operate_post()
+          res = operate_post(:query, service, params, :service)
 
           res
         end
-
       end
     end
   end

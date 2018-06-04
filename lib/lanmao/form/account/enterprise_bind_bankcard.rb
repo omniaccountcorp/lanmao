@@ -2,8 +2,9 @@
 module Lanmao
   module Form
     module Account
-      module ResetPasswordForm
-        # 修改密码
+      module EnterpriseBindBankcardForm
+        # 企业换绑卡
+        #
         #
         # @return [ Hash ] 结果集
         #   * :form_method
@@ -12,15 +13,17 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def reset_password_form(flow_id, platform_user_no, redirect_url, is_skip="Forget", client='MOBILE')
+        def enterprise_bind_bankcard_form(flow_id, redirect_url, platform_user_no, bank_card_no, bank_code, bind_type="UPDATE_BANKCARD", client='MOBILE')
 
-          service = "RESET_PASSWORD"
+          service = "ENTERPRISE_BIND_BANKCARD"
 
           params = {
             requestNo: flow_id,
-            platformUserNo: platform_user_no,
             redirectUrl: redirect_url,
-            isSkip: is_skip,
+            platformUserNo: platform_user_no,
+            checkType: bank_card_no,
+            bankcode: bank_code,
+            bindType: bind_type,
             userDevice: client
           }
 

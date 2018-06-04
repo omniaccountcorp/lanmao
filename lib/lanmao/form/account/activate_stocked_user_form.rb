@@ -3,7 +3,7 @@ module Lanmao
   module Form
     module Account
       module ActivateStockedUserForm
-
+        #
         #  2.11 会员激活
         #
         # @return [ Hash ] 结果集
