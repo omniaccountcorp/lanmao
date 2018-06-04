@@ -16,13 +16,19 @@ module Lanmao
         #       * :order_no [String] 订单号
         #       * :amount [Number] 金额
         #
-        def reset_password()
+        def reset_password(flow_id, platform_user_no, redirect_url, is_skip="Forget", client='MOBILE')
 
-          params = {}
+          service = "RESET_PASSWORD"
+          
+          params = {
+            requestNo: flow_id,
+            platformUserNo: platform_user_no,
+            redirectUrl: redirect_url,
+            isSkip: is_skip,
+            userDevice: client
+          }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = get_form_data(service, params)
 
           res
         end
