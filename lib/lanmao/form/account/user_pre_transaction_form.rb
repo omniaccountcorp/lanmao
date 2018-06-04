@@ -2,8 +2,8 @@
 module Lanmao
   module Form
     module Account
-      module UserPreTransaction
-
+      module UserPreTransactionForm
+        #
         #
         # @return [ Hash ] 结果集
         #   * :form_method
@@ -12,7 +12,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def user_pre_transaction(request_no, user_no, biz_type,
+        def user_pre_transaction_form(request_no, user_no, biz_type,
                                  amount, expired, redirect_url,
                                  project_no, share, creditsale_request_no,
                                  pre_marketing_amount, remark="")

@@ -7,7 +7,7 @@ RSpec.describe '修改密码' do
   let(:platform_user_no) { "2d22" }
 
   it '成功跳转 form' do
-    result = client.reset_password(flow_id, redirect_url, platform_user_no)
+    result = client.reset_password_form(flow_id, redirect_url, platform_user_no)
 
     html = create_getway_post(result)
 

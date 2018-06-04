@@ -7,7 +7,7 @@ RSpec.describe '个人换绑卡' do
   let(:platform_user_no) { "121212" }
 
   it '成功跳转' do
-    result = client.personal_bind_bankcard_expand(request_no, redirect_url, platform_user_no, "LIMIT")
+    result = client.personal_bind_bankcard_expand_form(request_no, redirect_url, platform_user_no, "LIMIT")
 
     html = create_getway_post(result)
     # ap html

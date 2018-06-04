@@ -2,8 +2,8 @@
 module Lanmao
   module Form
     module Account
-      module ModifyMobileExpandForm
-        # 修改手机号码
+      module UnbindBankcardForm
+        # 解绑银行卡
         #
         # @return [ Hash ] 结果集
         #   * :form_method
@@ -12,15 +12,14 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def modify_mobile_expand_form(flow_id, platform_user_no, redirect_url, check_type, client="MOBILE")
+        def unbind_bankcard_form(flow_id, redirect_url, platform_user_no, client="MOBILE")
 
-          service = "MODIFY_MOBILE_EXPAND"
+          service = "UNBIND_BANKCARD"
 
           params = {
-            requetNo: flow_id,
-            platformUserNo: platform_user_no,
+            requestNo: flow_id,
             redirectUrl: redirect_url,
-            checkType: check_type,
+            platformUserNo: platform_user_no,
             userDevice: client
           }
 

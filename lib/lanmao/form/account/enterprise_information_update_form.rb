@@ -1,8 +1,8 @@
 # coding: utf-8
 module Lanmao
-  module Api
+  module Form
     module Account
-      module EnterpriseInformationUpdate
+      module EnterpriseInformationUpdateForm
         # 更新企业信息
         #
         # @return [ Hash ] 结果集
@@ -12,7 +12,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def enterprise_information_update(flow_id, platform_user_no, redirect_url)
+        def enterprise_information_update_form(flow_id, platform_user_no, redirect_url)
 
           service = "ENTERPRISE_INFORMATION_UPDATE"
 
@@ -23,7 +23,7 @@ module Lanmao
           }
 
           res = get_form_data(service, params)
-          
+
           res
         end
 

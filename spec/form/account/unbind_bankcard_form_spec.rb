@@ -7,7 +7,7 @@ RSpec.describe '银行卡解绑' do
   let(:platform_user_no) { "222" }
 
   it '正常跳转到 form' do
-    result = client.unbind_bankcard(flow_id, redirect_url, platform_user_no)
+    result = client.unbind_bankcard_form(flow_id, redirect_url, platform_user_no)
 
     html = create_getway_post(result)
 

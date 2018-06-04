@@ -10,7 +10,7 @@ RSpec.describe '企业换绑卡' do
 
 
   it '成功' do
-    result = client.enterprise_bind_bankcard(request_no, redirect_url, platform_user_no, bank_card_no, bank_code)
+    result = client.enterprise_bind_bankcard_form(request_no, redirect_url, platform_user_no, bank_card_no, bank_code)
 
     html = create_getway_post(result)
 

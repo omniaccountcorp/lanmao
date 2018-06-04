@@ -7,7 +7,7 @@ RSpec.describe '更新企业信息' do
   let(:redirect_url) { 'http://test.omni_account.com' }
 
   it '成功跳转到更新form' do
-    result = client.enterprise_information_update(flow_id, platform_user_no, redirect_url)
+    result = client.enterprise_information_update_form(flow_id, platform_user_no, redirect_url)
 
     html = create_getway_post(result)
 
