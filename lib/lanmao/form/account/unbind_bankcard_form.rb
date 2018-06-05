@@ -12,7 +12,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def unbind_bankcard_form(flow_id, redirect_url, platform_user_no, client="MOBILE")
+        def unbind_bankcard_form(flow_id, redirect_url, platform_user_no)
 
           service = "UNBIND_BANKCARD"
 
@@ -20,7 +20,6 @@ module Lanmao
             requestNo: flow_id,
             redirectUrl: redirect_url,
             platformUserNo: platform_user_no,
-            userDevice: client
           }
 
           res = get_form_data(service, params)
