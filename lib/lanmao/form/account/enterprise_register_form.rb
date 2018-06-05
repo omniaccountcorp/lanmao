@@ -3,7 +3,7 @@ module Lanmao
   module Form
     module Account
       module EnterpriseRegisterForm
-
+        #
         #  2.2 企业绑卡注册
         #
         # @return [ Hash ] 结果集
@@ -15,7 +15,7 @@ module Lanmao
         #
         def enterprise_register_form(flow_id, user_no, enterprise_name, bank_licence, org_no, tax_no, business_license, unified_code,
                                      credit_code, legal, id_card_type, legal_id_card_no, contact, contact_phone, role_type,
-                                     bank_card_no, bank_code, return_url, auth_list='', client='MOBILE')
+                                     bank_card_no, bank_code, return_url, auth_list='')
           service = 'ENTERPRISE_REGISTER'
 
           params = {
@@ -37,8 +37,7 @@ module Lanmao
             bankcardNo: bank_card_no,
             bankcode: bank_code,
             redirectUrl: return_url,
-            auth_list: auth_list,
-            userDevice: client,
+            authList: auth_list,
           }
 
           res = get_form_data(service, params)

@@ -15,7 +15,6 @@ RSpec.describe '个人签约' do
 
   it '借款用户个人签约' do
     result = client.personal_register_expand_form(user_no, flow_id, true_name, id_card_no, bank_card_no, phone, id_card_type, role_type, check_type, return_url)
-
     html = create_getway_post(result)
 
     path = 'tmp/spec_personal_register_expand_form.html'

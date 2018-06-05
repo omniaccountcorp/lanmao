@@ -3,7 +3,7 @@ module Lanmao
   module Api
     module Trade
       module AsyncTransaction
-
+        # 批量交易
         #
         # @param biz_details [ Array ] 交易明细
         #          * :request_no 交易明细订单号
@@ -20,14 +20,6 @@ module Lanmao
         #            * :share 债权份额 (债权认购且需校验债权关系的必传)
         #            * :custom_define 平台商户自定义参数，平台交易时传入的自定义参数
         #            * :remark 备注
-        #
-        # @return [ Hash ] 结果集
-        #   * :result [String] "S"/"F"/"P"
-        #   * :request_params [Hash] 请求参数
-        #   * :response [Object] 请求返回对象
-        #   * :code [String] 结果代码
-        #   * :msg [String] 结果信息
-        #   * :data: 具体业务返回信息
         #
         def async_transaction(batch_no, biz_details)
 

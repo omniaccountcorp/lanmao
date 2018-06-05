@@ -14,7 +14,7 @@ RSpec.describe '用户预处理' do
   let(:pre_marketing_amount) { 50.00 }
 
   it '失败' do
-    result = client.user_pre_transaction(request_no, user_no, biz_type, amount, expired, redirect_url, project_no, share, creditsale_request_no, pre_marketing_amount)
+    result = client.user_pre_transaction_form(request_no, user_no, biz_type, amount, expired, redirect_url, project_no, share, creditsale_request_no, pre_marketing_amount)
 
     html = create_getway_post(result)
 
