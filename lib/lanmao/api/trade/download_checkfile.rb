@@ -12,18 +12,17 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :url [String] 支付 url
-        #       * :order_no [String] 订单号
-        #       * :amount [Number] 金额
+        #       * :File [file] 对账文件
         #
-        def download_checkfile()
+        def download_checkfile(file_date)
+
+          service = "DOWNLOAD_CHECKFILE"
 
           params = {
+            fileDate: file_date
           }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = operate_post(:operate, service, params, :service)
 
           res
         end

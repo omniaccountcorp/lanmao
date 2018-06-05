@@ -12,7 +12,7 @@ RSpec.describe '修改手机号' do
 
     html = create_getway_post(result)
 
-    ap result
+    # ap result
     expect(result[:form_method]).to_not eq nil
     expect(result[:form_data][:serviceName]).to eq "MODIFY_MOBILE_EXPAND"
     expect(html).not_to eq nil

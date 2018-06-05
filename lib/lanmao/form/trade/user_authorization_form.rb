@@ -1,7 +1,7 @@
 # coding: utf-8
 module Lanmao
   module Form
-    module Account
+    module Trade 
       module UserAuthorizationForm
         #
         # @return [ Hash ] 结果集
