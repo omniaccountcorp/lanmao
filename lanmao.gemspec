@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'faker', '~> 1.8'
   spec.add_development_dependency 'byebug', '~> 9.1'
   spec.add_development_dependency 'awesome_print'
+  spec.add_development_dependency 'activesupport', '~> 5.0'
 
   # spec.add_runtime_dependency 'macaddr', '~> 1.7'
   # spec.add_runtime_dependency 'rest-client', '~> 2.0'

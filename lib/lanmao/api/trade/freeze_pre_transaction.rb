@@ -12,18 +12,23 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :url [String] 支付 url
-        #       * :order_no [String] 订单号
-        #       * :amount [Number] 金额
+        #       * :code [Enum] 返回吗
+        #       * :status [Enum] 业务处理状态（处理失败INIT；处理成功SUCCESS）
+        #       * :errorCode [String] 错误码
+        #       * :errorMessage [String] 错误描述
         #
-        def freeze_pre_transaction()
+        def freeze_pre_transaction(flow_id, platform_user_no, biz_type, amount)
+
+          service = "FREEZE_PRE_TRANSACTION"
 
           params = {
+            requestNo: flow_id,
+            platformUserNo: platform_user_no,
+            bizType: biz_type,
+            amount: amount
           }
-
-          res = operate_post()
-
-          Lanmao.logger.info res
+          
+          res = operate_post(:operate, service, params, :service)
 
           res
         end

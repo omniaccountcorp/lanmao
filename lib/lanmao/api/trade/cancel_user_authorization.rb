@@ -12,18 +12,25 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
-        #       * :url [String] 支付 url
-        #       * :order_no [String] 订单号
-        #       * :amount [Number] 金额
+        #       * :platformUserNo [String] 平台用户编号
+        #       * :requestNo [String] 流水号
+        #       * :code [Enum] 返回吗
+        #       * :status [Enum] 业务处理状态（处理失败INIT；处理成功SUCCESS）
+        #       * :errorCode [String] 错误码
+        #       * :errorMessage [String] 错误描述
+        #       * :authlist [String] 取消授权业务列表
         #
-        def cancel_user_authorization()
+        def cancel_user_authorization(flow_id, platform_user_no, auth_list)
+
+          service = "CANCEL_USER_AUTHORIZATION"
 
           params = {
+            platformUserNo: platform_user_no,
+            requestNo: flow_id,
+            authList: auth_list
           }
 
-          res = operate_post()
-
-          Lanmao.logger.info res
+          res = operate_post(:operate, service, params, :service)
 
           res
         end
