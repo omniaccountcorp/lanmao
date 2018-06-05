@@ -2,8 +2,8 @@
 module Lanmao
   module Api
     module Trade
-      module ModifyProject
-        # 变更标的
+      module UnfreezeTradePassword
+        # 交易密码冻结
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -12,18 +12,18 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
+        #       * :url [String] 支付 url
+        #       * :order_no [String] 订单号
+        #       * :amount [Number] 金额
         #
-        def modify_project(request_no, project_no, status)
-
-          service = 'MODIFY_PROJECT'
+        def unfreeze_trade_password()
 
           params = {
-            requestNo: request_no,
-            projectNo: project_no,
-            status: status,
           }
 
-          res = operate_post(:operate, service, params, :service)
+          res = operate_post()
+
+          Lanmao.logger.info res
 
           res
         end

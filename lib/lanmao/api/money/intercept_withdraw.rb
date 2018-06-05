@@ -1,9 +1,9 @@
 # coding: utf-8
 module Lanmao
   module Api
-    module Trade
-      module ModifyProject
-        # 变更标的
+    module Money
+      module InterceptWithdraw
+        # 提现拦截
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -12,15 +12,19 @@ module Lanmao
         #   * :code [String] 结果代码
         #   * :msg [String] 结果信息
         #   * :data: 具体业务返回信息
+        #       * :request_no [String] 交易流水号
+        #       * :code [Enum] 返回码
+        #       * :status [Enum]
+        #       * :errorCode [String] 错误吗
+        #       * :errorMessage [String] 错误描述
         #
-        def modify_project(request_no, project_no, status)
+        def intercept_withdraw(flow_id, pre_transaction_no)
 
-          service = 'MODIFY_PROJECT'
+          service = "INTERCEPT_WITHDRAW"
 
           params = {
-            requestNo: request_no,
-            projectNo: project_no,
-            status: status,
+            requestNo: flow_id,
+            preTransactionNo: pre_transaction_no
           }
 
           res = operate_post(:operate, service, params, :service)

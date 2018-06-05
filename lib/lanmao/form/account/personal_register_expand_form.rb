@@ -3,7 +3,7 @@ module Lanmao
   module Form
     module Account
       module PersonalRegisterExpandForm
-
+        #
         #  2.1 个人绑卡注册
         #
         # @return [ Hash ] 结果集

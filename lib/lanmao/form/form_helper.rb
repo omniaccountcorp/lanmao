@@ -7,7 +7,6 @@ module Lanmao
       #
       # @param service [ String ] 富民的服务
       # @param params [ Hash ] 参数
-      # @param post_path [ String ] post url
       #
       # @return [ Hash ] 结果集
       #   * form_method
@@ -25,7 +24,7 @@ module Lanmao
             :url => url,
             :method => :post,
           },
-          form_data: body
+          form_data: body.merge(userDevice: params[:userDevice]),
         }
       end
 

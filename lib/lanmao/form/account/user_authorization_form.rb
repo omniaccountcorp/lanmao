@@ -2,27 +2,23 @@
 module Lanmao
   module Form
     module Account
-      module ActivateStockedUserForm
-        #
-        #  2.11 会员激活
+      module UserAuthorizationForm
         #
         # @return [ Hash ] 结果集
         #   * :form_method
         #     * :method
         #     * :url
         #   * :form_data
-        #     * :data
-        #
-        def activate_stocked_user_form(flow_id, return_url, user_no, auth_list='', check_type='LIMIT', client='MOBILE')
-          service = 'ACTIVATE_STOCKED_USER'
+        #     * :data        #
+        def user_authorization_form(user_no, request_no, auth_list, redirect_url)
+
+          service = 'USER_AUTHORIZATION'
 
           params = {
             platformUserNo: user_no,
-            requestNo: flow_id,
+            requestNo: request_no,
             authList: auth_list,
-            redirectUrl: return_url,
-            checkType: check_type,
-            userDevice: client,
+            redirectUrl: redirect_url,
           }
 
           res = get_form_data(service, params)

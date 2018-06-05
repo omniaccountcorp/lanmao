@@ -2,22 +2,16 @@
 require 'spec_helper'
 
 RSpec.describe '修改密码' do
-  let(:user_no) { 'c01' }
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
-  let(:is_skip) { 'Remember' }
-  let(:return_url) { 'http://test.omni_account.com' }
+  let(:redirect_url) { 'http://test.omni_account.com' }
+  let(:platform_user_no) { "2d22" }
 
-  it '知道原密码，修改密码' do
-    result = client.reset_password_form(flow_id, user_no, is_skip, return_url)
+  it '成功跳转 form' do
+    result = client.reset_password_form(flow_id, redirect_url, platform_user_no)
 
     html = create_getway_post(result)
 
-    path = 'tmp/spec_reset_password_form.html'
-    fp = File.open(path, 'w+')
-    fp.write html
-    fp.close
-
-    puts "flow_id: #{flow_id}"
-    puts "测试 html 导入到：#{path}"
+    expect(result[:form_data][:serviceName]).to eq "RESET_PASSWORD"
+    expect(html).to_not eq nil
   end
 end

@@ -3,7 +3,7 @@ module Lanmao
   module Api
     module Trade
       module EstablishProject
-
+        # 创建标的
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -39,7 +39,7 @@ module Lanmao
           res
         end
 
-      end
+      end # module
     end
   end
 end

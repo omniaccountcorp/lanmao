@@ -3,8 +3,8 @@ module Lanmao
   module Api
     module Query
       module QueryAuthorizationEntrustPayRecord
-
-        #  5.2	单笔交易查询
+        #
+        #  委托支付授权记录查询
         #
         # @return [ Hash ] 结果集
         #   * :result [String] "S"/"F"/"P"
@@ -18,7 +18,7 @@ module Lanmao
           service = 'QUERY_AUTHORIZATION_ENTRUST_PAY_RECORD'
 
           params = {
-            requestNo: flow_id,            
+            requestNo: flow_id,
           }
 
           res = operate_post(:query, service, params, :service)
