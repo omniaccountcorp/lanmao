@@ -6,6 +6,22 @@ module Lanmao
 
     attr_accessor :config
 
+    @system_contracts = {
+      chief: 'SYS_GENERATE_000', # 平台总账户
+      compensatme: 'SYS_GENERATE_001', # 平台代偿
+      marketing: 'SYS_GENERATE_002', # 平台营销款，比如红包
+      profit: 'SYS_GENERATE_003', # 平台分润
+      deduct: 'SYS_GENERATE_004', # 平台收入，比如收取用户费用
+      interest: 'SYS_GENERATE_005', # 平台派息
+      recharge: 'SYS_GENERATE_006', # 平台代充值
+      loan: 'SYS_GENERATE_007', # 平台垫资账户
+    }
+    @system_contracts.each { |k, v|
+      define_method :"#{k}_system_contract" do |*args|
+        v
+      end
+    }
+
     def initialize(options_arg)
       options = Utils.symbolize_keys(options_arg)
       @config = {
