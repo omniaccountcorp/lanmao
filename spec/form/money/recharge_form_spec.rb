@@ -19,7 +19,7 @@ RSpec.describe '充值' do
                           nil, nil, nil, nil, nil)
 
     html = create_getway_post(res)
-    ap html
+    # ap html
     expect(res[:result]).not_to eq 'S'
   end
 end
