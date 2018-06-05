@@ -14,7 +14,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def personal_register_expand_form(user_no, flow_id, true_name, id_card_no, bank_card_no, phone, id_card_type, role_type, check_type, return_url, user_limit_type='ID_CARD_NO_UNIQUE', auth_list='', client='MOBILE')
+        def personal_register_expand_form(user_no, flow_id, true_name, id_card_no, bank_card_no, phone, id_card_type, role_type, check_type, return_url, user_limit_type='ID_CARD_NO_UNIQUE', auth_list='')
           service = 'PERSONAL_REGISTER_EXPAND'
 
           params = {
@@ -30,7 +30,6 @@ module Lanmao
             redirectUrl: return_url,
             userLimitType: user_limit_type,
             authList: auth_list,
-            userDevice: client,
           }
 
           res = get_form_data(service, params)
