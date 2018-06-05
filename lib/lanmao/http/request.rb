@@ -6,6 +6,7 @@ module Lanmao
       require 'active_support/all'
 
       def initialize(params, config, service, type)
+        Time.zone = "Beijing"
         @params = params
         @params[:timestamp] = Time.now.in_time_zone("Beijing").strftime('%Y%m%d%H%M%S') # 时间戳
 
