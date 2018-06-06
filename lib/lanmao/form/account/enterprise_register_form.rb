@@ -15,7 +15,7 @@ module Lanmao
         #
         def enterprise_register_form(flow_id, user_no, enterprise_name, bank_licence, org_no, tax_no, business_license, unified_code,
                                      credit_code, legal, id_card_type, legal_id_card_no, contact, contact_phone, role_type,
-                                     bank_card_no, bank_code, return_url, auth_list='')
+                                     bank_card_no, bank_code, return_url, auth_list='', fail_time='', amount='')
           service = 'ENTERPRISE_REGISTER'
 
           params = {
@@ -38,6 +38,8 @@ module Lanmao
             bankcode: bank_code,
             redirectUrl: return_url,
             authList: auth_list,
+            failTime: fail_time,
+            amount: amount,
           }
 
           res = get_form_data(service, params)
