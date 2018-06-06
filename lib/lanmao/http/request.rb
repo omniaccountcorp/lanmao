@@ -67,7 +67,7 @@ module Lanmao
                                                flow_id: flow_id,
                                                http_response: http_response,
                                                raw_body: http_response.body,
-                                               data: JSON.parse(http_response.body),
+                                               data: Utils.symbolize_keys(JSON.parse(http_response.body)),
                                                data_valid: true)
                                                # data_valid: Sign.verify(res, @config))
       end
