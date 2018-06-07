@@ -11,11 +11,11 @@ module Lanmao
       end
 
       ## 验签
-      def self.verify(data, config)  ##如何从data里分离出原始数据和签名数据
-        if data.headers[:sign]
-          sign = Base64.decode64(data.headers[:sign])
+      def self.verify(data, sign, config)  ##如何从data里分离出原始数据和签名数据
+        if sign
+          sign = Base64.decode64(sign)
           digester = OpenSSL::Digest::SHA1.new
-          config[:public_key].verify(digester, sign, data.body)
+          config[:public_key].verify(digester, sign, data)
         else
           true
         end
