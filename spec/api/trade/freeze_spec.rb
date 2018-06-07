@@ -9,7 +9,7 @@ RSpec.describe "资金冻结" do
     res = client.freeze(request_no, user_no, 1000)
 
     # ap res
-    expect(res[:data]["errorMessage"]).to include"用户不存在"
+    expect(res[:data][:errorMessage]).to include"用户不存在"
     expect(res[:result]).not_to eq('S')
   end
 end
