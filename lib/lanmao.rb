@@ -18,6 +18,7 @@ require "lanmao/sign/rsa"
 require "lanmao/http/request"
 require "lanmao/http/response"
 
+
 # 自动加载所有 api
 Dir["#{File.dirname(__FILE__)}/lanmao/api/**/*.rb"].each { |file| require file }
 # 自动加载所有 form
