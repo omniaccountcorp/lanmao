@@ -7,6 +7,6 @@ RSpec.describe '用户信息查询' do
 
     res = client.query_user_information('c01')
 
-    expect(res[:result]).to eq('P')
+    expect(res[:result]).to eq('S')
   end
 end
