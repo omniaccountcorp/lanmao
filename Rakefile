@@ -6,7 +6,7 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 task :push do
-  puts `gem push pkg/lanmao-#{RockFintech::VERSION}.gem`
+  puts `gem push pkg/lanmao-#{Lanmao::VERSION}.gem`
 end
 
 task :publish => [:build, :push]

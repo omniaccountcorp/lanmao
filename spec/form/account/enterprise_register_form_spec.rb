@@ -18,13 +18,16 @@ RSpec.describe '企业签约' do
   let(:bank_card_no) { '6212263201023550001' }
   let(:bank_code) { 'ABOC' }
   let(:id_card_type) { 'PRC_ID' }
-  let(:role_type) { 'GUARANTEECORP' }
+  let(:role_type) { 'INVESTOR' }
   let(:return_url) { 'http://test.omni_account.com' }
+  let(:auth_list) { 'TENDER' }
+  let(:end_time) { (Time.now + 3600 * 24 * 365 * 2).strftime('%Y%m%d') }
+  let(:amount) { 20000000 }
 
   it '担保企业签约' do
     result = client.enterprise_register_form(flow_id, user_no, enterprise_name, bank_licence, org_no, tax_no, business_license, unified_code, credit_code,
                                              legal, id_card_type, legal_id_card_no, contact, contact_phone, role_type,
-                                             bank_card_no, bank_code, return_url)
+                                             bank_card_no, bank_code, return_url, auth_list, end_time, amount)
 
     html = create_getway_post(result)
 

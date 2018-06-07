@@ -9,9 +9,9 @@ module Lanmao
         #     * :method
         #     * :url
         #   * :form_data
-        #     * :data        #
-        def user_authorization_form(user_no, request_no, auth_list, redirect_url)
-
+        #     * :data
+        #
+        def user_authorization_form(user_no, request_no, auth_list, redirect_url, fail_time='', amount='')
           service = 'USER_AUTHORIZATION'
 
           params = {
@@ -19,6 +19,8 @@ module Lanmao
             requestNo: request_no,
             authList: auth_list,
             redirectUrl: redirect_url,
+            failTime: fail_time,
+            amount: amount,
           }
 
           res = get_form_data(service, params)

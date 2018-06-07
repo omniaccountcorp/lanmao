@@ -68,7 +68,6 @@ module Lanmao
                                                http_response: http_response,
                                                raw_body: http_response.body,
                                                data: JSON.parse(http_response.body),
-                                               # data_valid: true
                                                data_valid: Sign::RSA.verify(http_response, @config)
                                              )
 
