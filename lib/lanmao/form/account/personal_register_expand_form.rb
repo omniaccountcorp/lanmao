@@ -6,6 +6,8 @@ module Lanmao
         #
         #  2.1 个人绑卡注册
         #
+        # @param fail_time [ Time ] 授权期限
+        #
         # @return [ Hash ] 结果集
         # @return [ Hash ] 结果集
         #   * :form_method
@@ -14,7 +16,9 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def personal_register_expand_form(user_no, flow_id, true_name, id_card_no, bank_card_no, phone, id_card_type, role_type, check_type, return_url, user_limit_type='ID_CARD_NO_UNIQUE', auth_list='', client='MOBILE')
+        def personal_register_expand_form(user_no, flow_id, true_name, id_card_no, bank_card_no, phone,
+                                          id_card_type, role_type, check_type, return_url,
+                                          user_limit_type='ID_CARD_NO_UNIQUE', auth_list='', fail_time='', amount='')
           service = 'PERSONAL_REGISTER_EXPAND'
 
           params = {
@@ -28,9 +32,10 @@ module Lanmao
             userRole: role_type,
             checkType: check_type,
             redirectUrl: return_url,
-            user_limit_type: user_limit_type,
-            auth_list: auth_list,
-            userDevice: client,
+            userLimitType: user_limit_type,
+            authList: auth_list,
+            failTime: fail_time,
+            amount: amount,
           }
 
           res = get_form_data(service, params)

@@ -12,7 +12,7 @@ RSpec.describe '委托支付授权' do
     res = client.authorization_entrust_pay(flow_id, borrow_platform_user_no, project_no, entrusted_type, entrusted_platform_user_no)
 
     # ap res
-    expect(res[:data]["errorMessage"]).to include"用户不存在"
+    expect(res[:data][:errorMessage]).to include"用户不存在"
     expect(res[:result]).not_to eq "S"
   end
 end

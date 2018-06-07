@@ -18,7 +18,7 @@ module Lanmao
         #       * :errorMessage
         #       * :requestNo
         #
-        def user_auto_pre_transaction(flow_id, platform_user_id,  biz_type, amount,  project_no, original_recharge_no="", pre_marketing_amount="", share="", credit_sale_request_no="", remark="" )
+        def user_auto_pre_transaction(flow_id, platform_user_id,  biz_type, amount,  project_no, original_recharge_no=nil, pre_marketing_amount=nil, share=nil, credit_sale_request_no=nil, remark="")
 
           service = "USER_AUTO_PRE_TRANSACTION"
           params = {

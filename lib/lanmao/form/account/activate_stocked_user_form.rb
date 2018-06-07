@@ -13,7 +13,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def activate_stocked_user_form(flow_id, return_url, user_no, auth_list='', check_type='LIMIT', client='MOBILE')
+        def activate_stocked_user_form(flow_id, return_url, user_no, auth_list='', check_type='LIMIT')
           service = 'ACTIVATE_STOCKED_USER'
 
           params = {
@@ -22,7 +22,6 @@ module Lanmao
             authList: auth_list,
             redirectUrl: return_url,
             checkType: check_type,
-            userDevice: client,
           }
 
           res = get_form_data(service, params)

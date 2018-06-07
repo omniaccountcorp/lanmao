@@ -13,7 +13,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def enterprise_bind_bankcard_form(flow_id, redirect_url, platform_user_no, bank_card_no, bank_code, bind_type="UPDATE_BANKCARD", client='MOBILE')
+        def enterprise_bind_bankcard_form(flow_id, redirect_url, platform_user_no, bank_card_no, bank_code, bind_type="UPDATE_BANKCARD")
 
           service = "ENTERPRISE_BIND_BANKCARD"
 
@@ -24,7 +24,6 @@ module Lanmao
             checkType: bank_card_no,
             bankcode: bank_code,
             bindType: bind_type,
-            userDevice: client
           }
 
           res = get_form_data(service, params)

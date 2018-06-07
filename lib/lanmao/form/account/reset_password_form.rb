@@ -12,7 +12,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def reset_password_form(flow_id, platform_user_no, redirect_url, is_skip="Forget", client='MOBILE')
+        def reset_password_form(flow_id, platform_user_no, redirect_url, is_skip="Forget")
 
           service = "RESET_PASSWORD"
 
@@ -21,7 +21,6 @@ module Lanmao
             platformUserNo: platform_user_no,
             redirectUrl: redirect_url,
             isSkip: is_skip,
-            userDevice: client
           }
 
           res = get_form_data(service, params)

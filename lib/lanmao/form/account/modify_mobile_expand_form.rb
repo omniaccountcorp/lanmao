@@ -12,7 +12,7 @@ module Lanmao
         #   * :form_data
         #     * :data
         #
-        def modify_mobile_expand_form(flow_id, platform_user_no, redirect_url, check_type, client="MOBILE")
+        def modify_mobile_expand_form(flow_id, platform_user_no, redirect_url, check_type)
 
           service = "MODIFY_MOBILE_EXPAND"
 
@@ -21,7 +21,6 @@ module Lanmao
             platformUserNo: platform_user_no,
             redirectUrl: redirect_url,
             checkType: check_type,
-            userDevice: client
           }
 
           res = get_form_data(service, params)
