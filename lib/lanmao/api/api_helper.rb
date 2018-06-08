@@ -49,6 +49,33 @@ module Lanmao
         res
       end
 
+      def download_post(service, params, type)
+        request = Http::Request.new(params, @config, service, type)
+        response = request.post
+        res = {
+          result: 'P', # 默认
+          request_params: params,
+          response: response,
+          flow_id: nil,
+          code: nil,
+          error_code: nil,
+          error_msg: nil,
+          data: nil,
+        }
+        result = JSON.parse(response).with_indifferent_access rescue {}
+        if "1" == result[:code]
+          res[:result] = "F"
+          res[:code] = result[:code]
+          res[:error_code] = result[:errorCode]
+          res[:error_msg] = result[:errorMessage]
+        else
+          res[:result] = "S"
+          res[:data] = response
+        end
+
+        res
+      end
+
     end # CommunicateResultHelper
   end
 end

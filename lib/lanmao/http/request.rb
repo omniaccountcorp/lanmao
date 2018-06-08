@@ -6,17 +6,19 @@ module Lanmao
       require 'active_support/all'
 
       def initialize(params, config, service, type)
-        Time.zone = "Beijing"
         @params = params
         @params[:timestamp] = Time.now.in_time_zone("Beijing").strftime('%Y%m%d%H%M%S') # 时间戳
 
         @config = config
         @service = service
+        @type = type
 
         @url = if :gateway == type                # 网关模式
                  @config[:path] + "/gateway"
                elsif :service == type             # 直连模式
                  @config[:path] + "/service"
+               elsif :download == type             # 对账文件下载模式
+                 @config[:path] + "/download"
                else
                  @config[:path]
                end
@@ -60,7 +62,11 @@ module Lanmao
         # 5. send http request
         Lanmao.logger.info "#{identifier} 发送的报文为：\n#{post_body}\n"
         http_response = RestClient.post(@url, post_body)
+
         Lanmao.logger.info "#{identifier} 返回的报文为：\n#{http_response.body.force_encoding('utf-8')}\n"
+
+        # 直接返回，数据以字节流形式在 response body 中输出，无签名
+        return http_response.body if @type == :download
 
         # 6. create response
         @response = Lanmao::Http::Response.new(service: @service,
@@ -68,8 +74,10 @@ module Lanmao
                                                http_response: http_response,
                                                raw_body: http_response.body,
                                                data: Utils.symbolize_keys(JSON.parse(http_response.body)),
-                                               data_valid: true)
-                                               # data_valid: Sign.verify(res, @config))
+                                               # data_valid: true
+                                               data_valid: Sign::RSA.verify(http_response.body, http_response.headers[:sign],  @config)
+                                             )
+
       end
 
       def flow_id
