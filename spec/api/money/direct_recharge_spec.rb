@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.describe '自动充值' do
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
-  let(:platform_user_no) { "12121212" }
+  let(:platform_user_no) { "c009" }
   let(:amount) { "2000" }
   let(:pay_company) { "FUIOU" }
   let(:recharge_way) { "PROXY" }

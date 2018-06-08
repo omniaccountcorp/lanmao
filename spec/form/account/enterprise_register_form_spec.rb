@@ -2,20 +2,20 @@
 require 'spec_helper'
 
 RSpec.describe '企业签约' do
-  let(:user_no) { '2' }
+  let(:user_no) { 'E02' }
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
-  let(:enterprise_name) { '上更保理公司' }
-  let(:bank_licence) { '100000000' }
+  let(:enterprise_name) { '保理公司' }
+  let(:bank_licence) { '100000001' }
   let(:org_no) { '' }
   let(:business_license) { '' }
   let(:tax_no) { '' }
-  let(:unified_code) { '1000002221' }
-  let(:credit_code) { '1000002221' }
+  let(:unified_code) { '1000002229' }
+  let(:credit_code) { '1000002229' }
   let(:legal) { '王辉' }
-  let(:legal_id_card_no) { '500224199511150002' }
+  let(:legal_id_card_no) { '500224199511150009' }
   let(:contact) { '王辉' }
-  let(:contact_phone) { '15922510001' }
-  let(:bank_card_no) { '6212263201023550001' }
+  let(:contact_phone) { '15922510009' }
+  let(:bank_card_no) { '6212263201023550009' }
   let(:bank_code) { 'ABOC' }
   let(:id_card_type) { 'PRC_ID' }
   let(:role_type) { 'INVESTOR' }

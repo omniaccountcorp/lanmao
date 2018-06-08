@@ -17,7 +17,7 @@ module Lanmao
           service = "ENTERPRISE_INFORMATION_UPDATE"
 
           params = {
-            requetNo: flow_id,
+            requestNo: flow_id,
             platformUserNo: platform_user_no,
             redirectUrl: redirect_url
           }
