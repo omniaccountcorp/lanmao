@@ -22,7 +22,7 @@ module Lanmao
             fileDate: file_date
           }
 
-          res = operate_post(:operate, service, params, :service)
+          res = download_post(service, params, :download)
 
           res
         end
