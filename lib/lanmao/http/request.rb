@@ -17,7 +17,7 @@ module Lanmao
                  @config[:path] + "/gateway"
                elsif :service == type             # 直连模式
                  @config[:path] + "/service"
-               elsif :dowload == type             # 对账文件下载模式
+               elsif :download == type             # 对账文件下载模式
                  @config[:path] + "/download"
                else
                  @config[:path]
