@@ -17,7 +17,7 @@ module Lanmao
         #       * :amount [Number] 金额
         #       * :balance [Number] 操作后账户余额
         #
-        def withdraw_form(flow_id, platform_user_no, expired, redirect_url, amount, withdraw_type='NORMAL', withdraw_form='IMMEDIATE', commission=0.0)
+        def withdraw_form(flow_id, platform_user_no, expired, redirect_url, amount, withdraw_type='NORMAL', withdraw_form='IMMEDIATE', commission=nil)
 
           service = "WITHDRAW"
 

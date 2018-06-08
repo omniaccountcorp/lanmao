@@ -6,7 +6,6 @@ module Lanmao
       require 'active_support/all'
 
       def initialize(params, config, service, type)
-        Time.zone = "Beijing"
         @params = params
         @params[:timestamp] = Time.now.in_time_zone("Beijing").strftime('%Y%m%d%H%M%S') # 时间戳
 
@@ -60,6 +59,7 @@ module Lanmao
         # 5. send http request
         Lanmao.logger.info "#{identifier} 发送的报文为：\n#{post_body}\n"
         http_response = RestClient.post(@url, post_body)
+
         Lanmao.logger.info "#{identifier} 返回的报文为：\n#{http_response.body.force_encoding('utf-8')}\n"
 
         # 6. create response
@@ -67,9 +67,11 @@ module Lanmao
                                                flow_id: flow_id,
                                                http_response: http_response,
                                                raw_body: http_response.body,
-                                               data: JSON.parse(http_response.body),
-                                               data_valid: true)
-                                               # data_valid: Sign.verify(res, @config))
+                                               data: Utils.symbolize_keys(JSON.parse(http_response.body)),
+                                               # data_valid: true
+                                               data_valid: Sign::RSA.verify(http_response.body, http_response.headers[:sign],  @config)
+                                             )
+
       end
 
       def flow_id

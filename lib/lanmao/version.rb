@@ -1,3 +1,3 @@
 module Lanmao
-  VERSION = "0.4.0"
+  VERSION = "0.8.1"
 end

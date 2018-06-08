@@ -11,7 +11,7 @@ RSpec.describe "冻结预处理" do
     res = client.freeze_pre_transaction(request_no, platform_user_no, biz_type, amount)
 
     # ap res
-    expect(res[:data]["errorMessage"]).to include "用户不存在"
+    expect(res[:data][:errorMessage]).to include "用户不存在"
     expect(res[:result]).not_to eq('S')
   end
 end
