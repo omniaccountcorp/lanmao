@@ -11,11 +11,14 @@ module Lanmao
 
         @config = config
         @service = service
+        @type = type
 
         @url = if :gateway == type                # 网关模式
                  @config[:path] + "/gateway"
                elsif :service == type             # 直连模式
                  @config[:path] + "/service"
+               elsif :download == type             # 对账文件下载模式
+                 @config[:path] + "/download"
                else
                  @config[:path]
                end
@@ -62,6 +65,9 @@ module Lanmao
 
         Lanmao.logger.info "#{identifier} 返回的报文为：\n#{http_response.body.force_encoding('utf-8')}\n"
 
+        # 直接返回，数据以字节流形式在 response body 中输出，无签名
+        return http_response.body if @type == :download
+
         # 6. create response
         @response = Lanmao::Http::Response.new(service: @service,
                                                flow_id: flow_id,
@@ -75,7 +81,7 @@ module Lanmao
       end
 
       def flow_id
-        @params[:requestNo]
+        @params[:requestNo] || @params[:batchNo]
       end
 
       def identifier

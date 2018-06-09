@@ -5,7 +5,7 @@ module Lanmao
 
       # 跳转到新网 Form 类的 api，统一返回处理
       #
-      # @param service [ String ] 富民的服务
+      # @param service [ String ] 新网的服务
       # @param params [ Hash ] 参数
       #
       # @return [ Hash ] 结果集
