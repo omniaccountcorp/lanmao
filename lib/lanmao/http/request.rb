@@ -81,7 +81,7 @@ module Lanmao
       end
 
       def flow_id
-        @params[:requestNo]
+        @params[:requestNo] || @params[:batchNo]
       end
 
       def identifier
