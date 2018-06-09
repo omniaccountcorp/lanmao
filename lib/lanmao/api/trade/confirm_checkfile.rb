@@ -17,7 +17,7 @@ module Lanmao
         #       * :errorCode [String] 错误码
         #       * :errorMessage [String] 错误描述
         #
-        def confirm_checkfile(flow_id, file_date, detail, file_type)
+        def confirm_checkfile(flow_id, file_date, detail)
 
           service = "CONFIRM_CHECKFILE"
 
@@ -25,11 +25,10 @@ module Lanmao
             requestNo: flow_id,
             fileDate: file_date,
             detail: detail,
-            fileType: file_type
           }
 
           res = operate_post(:operate, service, params, :service)
-          
+
           res
         end
 
