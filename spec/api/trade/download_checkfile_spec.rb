@@ -1,6 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
+##  TODO：this spec is failed
 RSpec.describe "对账文件下载" do
   let(:file_date) { "20180605" }
 

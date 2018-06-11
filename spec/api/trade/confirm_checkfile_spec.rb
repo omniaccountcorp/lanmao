@@ -1,6 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
+##  TODO：this spec is failed
 RSpec.describe "对账文件确认" do
   let(:request_no) { Lanmao::Utils.gen_flow_id }
   let(:file_date) { "20180608" }

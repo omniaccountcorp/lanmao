@@ -1,6 +1,7 @@
 # coding: utf-8
 require 'spec_helper'
 
+##  TODO：this spec is failed
 RSpec.describe "单笔债权出让" do
   let(:request_no) { Lanmao::Utils.gen_flow_id }
   let(:user_no) { "I01" }
