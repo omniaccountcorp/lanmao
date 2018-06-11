@@ -24,7 +24,7 @@ module Lanmao
 
           params = {
             requestNo: flow_id,
-            preTransactionNo: pre_transaction_no
+            withdrawRequestNo: pre_transaction_no
           }
 
           res = operate_post(:operate, service, params, :service)

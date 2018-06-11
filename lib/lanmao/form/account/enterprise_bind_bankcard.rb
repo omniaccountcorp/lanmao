@@ -21,7 +21,7 @@ module Lanmao
             requestNo: flow_id,
             redirectUrl: redirect_url,
             platformUserNo: platform_user_no,
-            checkType: bank_card_no,
+            bankcardNo: bank_card_no,
             bankcode: bank_code,
             bindType: bind_type,
           }

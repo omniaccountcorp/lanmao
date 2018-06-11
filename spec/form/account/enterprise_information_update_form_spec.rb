@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 RSpec.describe '更新企业信息' do
-  let(:platform_user_no) { 'c01' }
+  let(:platform_user_no) { 'E02' }
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
   let(:redirect_url) { 'http://test.omni_account.com' }
 
@@ -11,7 +11,14 @@ RSpec.describe '更新企业信息' do
 
     html = create_getway_post(result)
 
-    expect(result[:form_data][:serviceName]).to eq "ENTERPRISE_INFORMATION_UPDATE"
-    expect(html).to_not eq nil
+
+    path = 'tmp/spec_enterprise_information_update_form.html'
+    fp = File.open(path, 'w+')
+    fp.write html
+    fp.close
+
+    puts "flow_id: #{flow_id}"
+    puts "测试 html 导入到：#{path}"
+
   end
 end

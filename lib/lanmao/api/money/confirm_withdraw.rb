@@ -24,14 +24,14 @@ module Lanmao
         #       * :createTime [Time] 交易发起时间
         #       * :transactionTime [Time] 交易完成时间
         #
-        def confirm_withdraw(flow_id, pre_transaction_no, withdraw_way)
+        def confirm_withdraw(flow_id, pre_transaction_no, withdraw_type)
 
           service = "CONFIRM_WITHDRAW"
 
           params = {
             requestNo: flow_id,
             preTransactionNo: pre_transaction_no,
-            withdrawWay: withdraw_way
+            withdrawType: withdraw_type
           }
 
           res = operate_post(:operate, service, params, :service)

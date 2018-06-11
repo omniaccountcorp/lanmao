@@ -15,7 +15,7 @@ module Lanmao
         def user_pre_transaction_form(request_no, user_no, biz_type,
                                  amount, expired, redirect_url,
                                  project_no, share, creditsale_request_no,
-                                 pre_marketing_amount, remark="")
+                                 pre_marketing_amount)
           service = 'USER_PRE_TRANSACTION'
 
           params = {
@@ -29,7 +29,6 @@ module Lanmao
             share: share,
             creditsaleRequestNo: creditsale_request_no,
             preMarketingAmount: pre_marketing_amount,
-            remark: remark,
           }
 
           res = get_form_data(service, params)

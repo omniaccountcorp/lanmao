@@ -4,8 +4,8 @@ require 'spec_helper'
 RSpec.describe '企业换绑卡' do
   let(:request_no) { Lanmao::Utils.gen_flow_id }
   let(:redirect_url) { 'http://test.omni_account.com' }
-  let(:platform_user_no) { "121212" }
-  let(:bank_card_no) { "6228480319999888090" }
+  let(:platform_user_no) { "E02" }
+  let(:bank_card_no) { "6212263201023550007" }
   let(:bank_code) { "ABOC" }
 
 
@@ -14,7 +14,15 @@ RSpec.describe '企业换绑卡' do
 
     html = create_getway_post(result)
 
-    expect(result[:form_method]).to_not eq nil
-    expect(html).not_to eq nil
+
+    path = 'tmp/spec_enterprise_bind_bankcard_form.html'
+    fp = File.open(path, 'w+')
+    fp.write html
+    fp.close
+
+
+    puts "request_no: #{request_no}"
+    puts "测试 html 导入到：#{path}"
+
   end
 end
