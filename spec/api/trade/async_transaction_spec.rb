@@ -22,7 +22,7 @@ RSpec.describe "批量交易" do
     ]
     res = client.async_transaction(batch_no, biz_details)
 
-    ap res
+    # ap res
     expect(res[:data][:status]).to eq "SUCCESS"
     expect(res[:result]).to eq('S')
   end
