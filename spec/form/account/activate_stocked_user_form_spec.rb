@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 RSpec.describe '会员激活' do
-  let(:user_no) { 'c01' }
+  let(:user_no) { 'c0001' }
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
   let(:return_url) { 'http://test.omni_account.com' }
 
