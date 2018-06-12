@@ -1,7 +1,6 @@
 # coding: utf-8
 require 'spec_helper'
 
-##  TODO：this spec is failed
 RSpec.describe "批量交易" do
   let(:batch_no) { Lanmao::Utils.gen_flow_id }
 

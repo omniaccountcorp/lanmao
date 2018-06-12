@@ -1,7 +1,6 @@
 # coding: utf-8
 require 'spec_helper'
 
-##  TODO：this spec is failed
 RSpec.describe "取消债转" do
   let(:request_no) { Lanmao::Utils.gen_flow_id }
   let(:credit_sale_request_no) { "5b1ddb2f3c32861dc1000001" }
