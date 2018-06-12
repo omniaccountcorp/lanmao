@@ -3,14 +3,17 @@ require 'spec_helper'
 
 RSpec.describe "授权预处理" do
   let(:request_no) { Lanmao::Utils.gen_flow_id }
-  let(:platform_user_id) { Lanmao::Utils.gen_flow_id }
-  let(:user_no) { "123" }
-  let(:project_no) { "123456" }
-  let(:sale_share) { 5000.00 }
+  let(:user_no) { "I01" }
+  let(:biz_type) { "TRADE" }
+  let(:amount) { 1.00 }
+  let(:project_no) { "5b1dd8aa3c3286f6b500000e" }
+  # let(:sale_share) { 5000.00 }
 
-  it "失败" do
-    res = client.user_auto_pre_transaction(request_no, platform_user_id, "REPAYMENT", 1000, project_no)
+  it "自动投标成功" do
+    res = client.user_auto_pre_transaction(request_no, user_no, "TENDER", amount, project_no)
 
-    expect(res[:result]).not_to eq('S')
+    # ap res
+    expect(res[:data][:status]).to eq "SUCCESS"
+    expect(res[:result]).to eq('S')
   end
 end

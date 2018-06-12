@@ -22,13 +22,12 @@ module Lanmao
         #       * :asset_no [String] 标的号
         #       * :status	受托支付签约状态 [Integer] 0：普通标的 1：签约 2：未签约
         #
-        def query_transaction(flow_id, transaction_type, user_no)
+        def query_transaction(flow_id, transaction_type)
           service = 'QUERY_TRANSACTION'
 
           params = {
             requestNo: flow_id,
             transactionType: transaction_type,
-            platformUserNo: user_no,
           }
 
           res = operate_post(:query, service, params, :service)

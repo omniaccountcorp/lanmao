@@ -17,7 +17,7 @@ module Lanmao
         #       * :errorCode [String] 错误码
         #       * :errorMessage [String] 错误描述
         #
-        def cancel_pre_transaction(flow_id, pre_transaction_no, amount, commission="", profit_details=[])
+        def cancel_pre_transaction(flow_id, pre_transaction_no, amount, commission=nil, profit_details=nil)
 
           service = "CANCEL_PRE_TRANSACTION"
 

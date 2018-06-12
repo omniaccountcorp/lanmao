@@ -3,14 +3,14 @@ require 'spec_helper'
 
 RSpec.describe '换卡申请' do
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
-  let(:original_request_no) { "12121212" }
+  let(:original_request_no) { "5b1a28be3c32868e3d000001" }
   let(:audit_type) { "PASSED" }
 
-  it '失败' do
-    res = client.audit_bind_card(flow_id, original_request_no, audit_type)
 
-    # ap res
-    expect(res[:data][:errorMessage]).to include"用户换卡审核记录不存在!"
-    expect(res[:result]).not_to eq "S"
+  it '处理成功' do
+    result = client.audit_bind_card(flow_id, original_request_no, audit_type)
+    # ap result
+    expect(result[:result]).to eq 'P'
+    expect(result[:data][:errorMessage]).to include"已经审核"
   end
 end
