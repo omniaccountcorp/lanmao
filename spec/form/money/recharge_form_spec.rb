@@ -12,10 +12,11 @@ RSpec.describe '充值' do
   let(:recharge_way) { "SWIFT" }
   let(:expired) { (Time.now + 5 * 60).strftime("%Y%m%d%H%M%S")}
 
-  it '成功' do
-    res = client.recharge(platform_user_no, request_no, amount,
-                          expect_pay_company, redirect_url, expired, commission,
-                          "ICBK", nil, nil, nil, nil, recharge_way)
+  it '失败' do
+    res = client.recharge_form(platform_user_no, request_no, amount,
+                               expect_pay_company, recharge_way,
+                               redirect_url, expired, commission,
+                               nil, nil, nil, nil, nil)
 
     html = create_getway_post(res)
     # ap html
