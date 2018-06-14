@@ -1,7 +1,6 @@
 # coding: utf-8
 require 'spec_helper'
 
-##  TODO：this spec is failed
 RSpec.describe '委托支付授权' do
   let(:flow_id) { Lanmao::Utils.gen_flow_id }
   let(:borrow_platform_user_no) { "12121212" }

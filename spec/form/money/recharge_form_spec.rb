@@ -20,7 +20,6 @@ RSpec.describe '充值' do
 
     html = create_getway_post(res)
     # ap html
-    ap html
     path = 'tmp/spec_recharge_form.html'
     fp = File.open(path, 'w+')
     fp.write html

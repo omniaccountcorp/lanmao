@@ -14,7 +14,7 @@ RSpec.describe '验密扣费' do
 
     html = create_getway_post(result)
 
-    ap html
+    # ap html
     path = 'tmp/spec_verify_deduct_form.html'
     fp = File.open(path, 'w+')
     fp.write html

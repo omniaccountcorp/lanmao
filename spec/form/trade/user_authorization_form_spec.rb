@@ -12,7 +12,7 @@ RSpec.describe "用户授权" do
 
     html = create_getway_post(res)
 
-    ap html
+    # ap html
     path = 'tmp/spec_user_authorization_form.html'
     fp = File.open(path, 'w+')
     fp.write html
