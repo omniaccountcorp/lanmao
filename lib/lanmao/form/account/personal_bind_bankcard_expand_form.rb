@@ -16,8 +16,7 @@ module Lanmao
         #       * :order_no [String] 订单号
         #       * :amount [Number] 金额
         #
-        def personal_bind_bankcard_expand_form(flow_id, redirect_url, platform_user_no, check_type="LIMIT", bind_type="UPDATE_BANKCARD")
-
+        def personal_bind_bankcard_expand_form(flow_id, redirect_url, platform_user_no, phone='', bankcard_no='',check_type="LIMIT", bind_type="UPDATE_BANKCARD")
           service = "PERSONAL_BIND_BANKCARD_EXPAND"
           params = {
             requestNo: flow_id,
@@ -25,6 +24,8 @@ module Lanmao
             platformUserNo: platform_user_no,
             checkType: check_type,
             bindType: bind_type,
+            mobile: phone,
+            bankcardNo: bankcard_no,
           }
 
           res = get_form_data(service, params)

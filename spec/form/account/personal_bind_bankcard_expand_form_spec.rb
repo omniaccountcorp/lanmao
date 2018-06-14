@@ -5,9 +5,11 @@ RSpec.describe '个人换绑卡' do
   let(:request_no) { Lanmao::Utils.gen_flow_id }
   let(:redirect_url) { 'http://test.omni_account.com' }
   let(:platform_user_no) { "c01" }
+  let(:phone) { '17890901234' }
+  let(:card_id) { '6227001253210804601' }
 
   it '成功跳转' do
-    result = client.personal_bind_bankcard_expand_form(request_no, redirect_url, platform_user_no, "LIMIT")
+    result = client.personal_bind_bankcard_expand_form(request_no, redirect_url, platform_user_no, phone, card_id, "LIMIT")
 
     html = create_getway_post(result)
     # ap html
