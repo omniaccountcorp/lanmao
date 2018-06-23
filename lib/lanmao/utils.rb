@@ -13,6 +13,9 @@ module Lanmao
       new_hash = {}
       hash.each do |key, value|
         new_hash[(key.to_sym rescue key) || key] = value
+
+        self.symbolize_keys(value) if value.is_a? Hash
+        value.each_with_index { |v, i| value[i] = self.symbolize_keys(v) if v.is_a? Hash } if value.is_a? Array
       end
       new_hash
     end
