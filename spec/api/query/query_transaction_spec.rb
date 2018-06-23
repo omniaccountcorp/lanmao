@@ -11,9 +11,9 @@ RSpec.describe '单笔交易查询' do
   it '充值交易查询' do
     result = client.query_transaction(request_no_recharge, transaction_type_recharge)
 
-    # ap result
+    ap result
     expect(result[:result]).to eq 'S'
-    expect(result[:data][:records].first["amount"]).to eq 500
+    expect(result[:data][:records].first[:amount]).to eq 500
   end
 
   it '提现交易查询' do
@@ -21,6 +21,6 @@ RSpec.describe '单笔交易查询' do
 
     # ap result
     expect(result[:result]).to eq 'S'
-    expect(result[:data][:records].first["amount"]).to eq 5
+    expect(result[:data][:records].first[:amount]).to eq 5
   end
 end
