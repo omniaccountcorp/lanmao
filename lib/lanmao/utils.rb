@@ -12,10 +12,13 @@ module Lanmao
     def self.symbolize_keys(hash)
       new_hash = {}
       hash.each do |key, value|
-        new_hash[(key.to_sym rescue key) || key] = value
+        if value.is_a? Hash
+          self.symbolize_keys(value)
+        elsif value.is_a? Array
+          value.each_with_index { |v, i| value[i] = self.symbolize_keys(v) if v.is_a? Hash }
+        end
 
-        self.symbolize_keys(value) if value.is_a? Hash
-        value.each_with_index { |v, i| value[i] = self.symbolize_keys(v) if v.is_a? Hash } if value.is_a? Array
+        new_hash[(key.to_sym rescue key) || key] = value
       end
       new_hash
     end
