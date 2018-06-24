@@ -19,7 +19,7 @@ module Lanmao
         else
           true
         end
-      end # verify
+      end # verify func
 
     end
   end

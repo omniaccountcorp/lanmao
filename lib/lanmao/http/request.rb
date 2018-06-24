@@ -63,7 +63,7 @@ module Lanmao
         Lanmao.logger.info "#{identifier} 发送的报文为：\n#{post_body}\n"
         http_response = RestClient.post(@url, post_body)
 
-        Lanmao.logger.info "#{identifier} 返回的报文为：\n#{http_response.body.force_encoding('utf-8')}\n"
+        Lanmao.logger.info "#{identifier} 返回的报文为：\n#{http_response.body.force_encoding('utf-8')}\n" if @type != :download
 
         # 直接返回，数据以字节流形式在 response body 中输出，无签名
         return http_response.body if @type == :download

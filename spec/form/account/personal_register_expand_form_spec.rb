@@ -39,4 +39,20 @@ RSpec.describe '个人签约' do
     puts "flow_id: #{flow_id}"
     puts "测试 html 导入到：#{path}"
   end
+
+  it '投资人签约' do
+    result = client.personal_register_expand_form('I01', flow_id, '刘备', '500224199511152322', '6212263201022150001', '15922310002', id_card_type, "INVESTOR", check_type, return_url)
+
+    html = create_getway_post(result)
+
+    path = 'tmp/spec_personal_register_expand_form.html'
+    fp = File.open(path, 'w+')
+    fp.write html
+    fp.close
+
+    puts "flow_id: #{flow_id}"
+    puts "测试 html 导入到：#{path}"
+  end
+
+
 end

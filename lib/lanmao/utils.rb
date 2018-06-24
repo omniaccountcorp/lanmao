@@ -10,11 +10,7 @@ module Lanmao
     # @param hash [Hash] 需要更改的 hash
     # @return [Hash] 更改后的 hash
     def self.symbolize_keys(hash)
-      new_hash = {}
-      hash.each do |key, value|
-        new_hash[(key.to_sym rescue key) || key] = value
-      end
-      new_hash
+      hash.with_indifferent_access
     end
 
     def self.get_uuid(time=Time.now.to_i)
