@@ -63,7 +63,7 @@ module Lanmao
           data: nil,
         }
         result = JSON.parse(response).with_indifferent_access rescue {}
-        if "1" == result[:code]
+        if "INIT" == result[:status]
           res[:result] = "F"
           res[:code] = result[:code]
           res[:error_code] = result[:errorCode]
