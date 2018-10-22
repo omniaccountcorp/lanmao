@@ -34,7 +34,7 @@ module Lanmao
                           redirect_url, expired,
                           commission, bankcode, pay_type,
                           authtrade_type, authtender_amount,
-                          project_no, callback_mode)
+                          project_no, swift_route, callback_mode)
 
           service = "RECHARGE"
 
@@ -52,6 +52,7 @@ module Lanmao
             authtradeType: authtrade_type,
             authtenderAmount: authtender_amount,
             projectNo: project_no,
+            swiftRoute: swift_route,
             callbackMode: callback_mode,
           }
 
