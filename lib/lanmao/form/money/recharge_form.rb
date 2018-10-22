@@ -30,11 +30,11 @@ module Lanmao
         #       * :channelErrorMessage [String] 支付通道返回错误消息(若快捷充值回调方式传入 DIRECT_CALLBACK， 则返回此参数)技术支持单独提供
         #
         def recharge_form(platform_user_no, request_no, amount,
-                          expect_pay_company, recharge_way="SWIFT",
+                          expect_pay_company, recharge_way,
                           redirect_url, expired,
                           commission, bankcode, pay_type,
                           authtrade_type, authtender_amount,
-                          project_no, callback_mode)
+                          project_no, callback_mode, swift_route='ORIGNAL_SWIFT')
 
           service = "RECHARGE"
 
@@ -53,6 +53,7 @@ module Lanmao
             authtenderAmount: authtender_amount,
             projectNo: project_no,
             callbackMode: callback_mode,
+            swiftRoute: swift_route,
           }
 
           res = get_form_data(service, params)
