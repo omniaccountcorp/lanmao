@@ -11,7 +11,7 @@ RSpec.describe "资金解冻" do
     res = client.unfreeze(request_no, amount, user_no, original_freeze_request_no)
 
     # ap res
-    expect(res[:data][:errorMessage]).to include"冻结金额不足"
+    expect(res[:data][:errorMessage]).to include"冻结订单不存在"
     expect(res[:result]).to_not eq('S')
   end
 end

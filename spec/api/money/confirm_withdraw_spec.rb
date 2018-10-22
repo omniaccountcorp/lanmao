@@ -10,7 +10,7 @@ RSpec.describe "提现确认" do
     res = client.confirm_withdraw(flow_id, pre_transaction_no, withdraw_type)
 
     # ap res
-    expect(res[:data][:errorMessage]).to include("冻结订单可用金额不足")
+    expect(res[:data][:errorMessage]).to include("提现记录不存在")
     expect(res[:result]).to eq('P')
   end
 end

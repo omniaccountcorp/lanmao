@@ -11,7 +11,7 @@ RSpec.describe "冻结预处理" do
     res = client.freeze_pre_transaction(request_no, platform_user_no, biz_type, amount)
 
     # ap res
-    expect(res[:data][:status]).to eq "SUCCESS"
-    expect(res[:result]).to eq('S')
+    expect(res[:data][:status]).to eq "INIT"
+    expect(res[:result]).to eq('F')
   end
 end

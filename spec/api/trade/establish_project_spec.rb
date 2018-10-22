@@ -16,7 +16,7 @@ RSpec.describe "创建标的" do
     res = client.establish_project(request_no, user_no, project_no, project_amount, project_name, project_type, annnual_interest_rate, repayment_way, project_period)
 
     # ap res
-    expect(res[:data][:status]).to eq "SUCCESS"
-    expect(res[:result]).to eq('S')
+    expect(res[:data][:status]).to eq "INIT"
+    expect(res[:result]).to eq('F')
   end
 end

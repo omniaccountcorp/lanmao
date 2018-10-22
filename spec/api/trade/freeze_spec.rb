@@ -10,7 +10,7 @@ RSpec.describe "资金冻结" do
     res = client.freeze(request_no, user_no, amount)
 
     # ap res
-    expect(res[:data][:status]).to eq "SUCCESS"
-    expect(res[:result]).to eq('S')
+    expect(res[:data][:status]).to eq "INIT"
+    expect(res[:result]).to eq('P')
   end
 end

@@ -9,7 +9,7 @@ RSpec.describe Lanmao do
   it "测试通信" do
     params = {platformUserNo: 1}
 
-    res = client.query_user_information("c01")
+    res = client.query_user_information("1")
 
     expect(res[:result]).to eq('S')
   end

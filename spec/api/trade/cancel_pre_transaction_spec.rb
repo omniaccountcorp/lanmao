@@ -10,7 +10,7 @@ RSpec.describe "取消预处理" do
     res = client.cancel_pre_transaction(request_no, pre_transaction_no, amount)
 
     # ap res
-    expect(res[:data][:status]).to eq "SUCCESS"
-    expect(res[:result]).to eq('S')
+    expect(res[:data][:status]).to eq "INIT"
+    expect(res[:result]).not_to eq('S')
   end
 end

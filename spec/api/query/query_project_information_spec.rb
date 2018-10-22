@@ -8,8 +8,8 @@ RSpec.describe '标的信息查询' do
     result = client.query_project_information(project_no)
 
     # ap result
-    expect(result[:data][:status]).to eq "SUCCESS"
-    expect(result[:data][:projectNo]).to eq "123456"
-    expect(result[:result]).to eq 'S'
+    expect(result[:data][:status]).to eq "INIT"
+    expect(result[:data][:projectNo]).to eq nil
+    expect(result[:result]).not_to eq 'S'
   end
 end

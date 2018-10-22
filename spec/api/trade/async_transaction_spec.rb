@@ -23,7 +23,7 @@ RSpec.describe "批量交易" do
     res = client.async_transaction(batch_no, biz_details)
 
     # ap res
-    expect(res[:data][:status]).to eq "SUCCESS"
-    expect(res[:result]).to eq('S')
+    expect(res[:data][:status]).to eq "INIT"
+    expect(res[:result]).to eq('F')
   end
 end

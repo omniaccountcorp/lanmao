@@ -9,7 +9,7 @@ RSpec.describe "提现取消" do
     res = client.cancel_withdraw(flow_id, pre_transaction_no)
 
     # ap res
-    expect(res[:data][:errorMessage]).to include("冻结金额不足")
+    expect(res[:data][:errorMessage]).to include("不存在")
     expect(res[:result]).not_to eq('S')
   end
 end

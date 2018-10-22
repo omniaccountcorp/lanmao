@@ -11,7 +11,7 @@ RSpec.describe "单笔债权出让" do
     res = client.debenture_sale(request_no, user_no, project_no, sale_share)
 
     # ap res
-    expect(res[:data][:status]).to eq "SUCCESS"
-    expect(res[:result]).to eq('S')
+    expect(res[:data][:status]).to eq "INIT"
+    expect(res[:result]).to eq('F')
   end
 end

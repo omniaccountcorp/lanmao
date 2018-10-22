@@ -10,7 +10,7 @@ RSpec.describe "变更标的" do
     res = client.modify_project(request_no, project_no, status)
 
     # ap res
-    expect(res[:data][:errorMessage]).to include "标的当前不能变更为:REPAYING"
+    expect(res[:data][:errorMessage]).to include "不存在"
     expect(res[:result]).to eq('P')
   end
 end

@@ -9,7 +9,7 @@ RSpec.describe "取消债转" do
     res = client.cancel_debenture_sale(request_no, credit_sale_request_no)
 
     # ap res
-    expect(res[:data][:errorMessage]).to include"债权出让订单已结束"
+    expect(res[:data][:errorMessage]).to include"债权出让订单不存在"
     expect(res[:result]).to eq('P')
   end
 end

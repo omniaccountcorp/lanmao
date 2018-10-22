@@ -3,7 +3,7 @@ require 'spec_helper'
 
 RSpec.describe "交易密码解冻" do
   let(:request_no) { Lanmao::Utils.gen_flow_id }
-  let(:user_no) { "I01" }
+  let(:user_no) { "1" }
 
   it "成功" do
     res = client.unfreeze_trade_password(request_no, user_no)
